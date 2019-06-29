@@ -1,4 +1,10 @@
-import { LOAD_START, ADD_SMURF, UPDATE_SMURF, DELETE_SMURF } from '../actions';
+import {
+  LOAD_START,
+  ADD_SMURF,
+  UPDATE_SMURF,
+  DELETE_SMURF,
+  SMURF_FAILURE
+} from '../actions';
 /*
   Be sure to import in all of the action types from `../actions`
 */
@@ -9,8 +15,7 @@ const initialState = {
   addSmurf: false,
   updateSmurf: false,
   deleteSmurf: false,
-  error: null,
-  isLoading: false
+  error: null
 };
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -32,14 +37,15 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         error: '',
-        isLoading: true
+        fetchingSmurfs: true
       };
     case ADD_SMURF:
       return {
         ...state,
         smurfs: [...state.smurfs, action.payload],
-        isLoading: false,
-        error: ''
+        fetchingSmurfs: false,
+        error: '',
+        addSmurf: true
       };
     case UPDATE_SMURF:
       const index = state.findIndex(smurf => smurf.id === action.payload.id);
@@ -49,7 +55,8 @@ function reducer(state = initialState, action) {
         {
           ...state,
           error: action.payload,
-          isLoading: false
+          fetchingSmurfs: false,
+          updateSmurf: true
         }
       ];
       console.log(state.smurfs);
@@ -57,7 +64,14 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         smurfs: state.smurfs.filter(smurf => !action.payload),
-        isLoading: false
+        fetchingSmurfs: false,
+        deleteSmurf: true
+      };
+    case SMURF_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        fetchingSmurfs: false
       };
     default:
       return state;

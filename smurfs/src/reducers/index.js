@@ -3,7 +3,8 @@ import {
   ADD_SMURF,
   UPDATE_SMURF,
   DELETE_SMURF,
-  SMURF_FAILURE
+  SMURF_FAILURE,
+  SMURF_SUCCESS
 } from '../actions';
 /*
   Be sure to import in all of the action types from `../actions`

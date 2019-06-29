@@ -37,7 +37,7 @@ function reducer(state = initialState, action) {
     case LOAD_START:
       return {
         ...state,
-        error: '',
+        error: null,
         fetchingSmurfs: true
       };
     case ADD_SMURF:

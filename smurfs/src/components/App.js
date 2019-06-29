@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { connect } from 'react-redux';
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -19,4 +20,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  /* This is a placeholder for state objects*/
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    /* This is a placeholder */
+  }
+)(App);

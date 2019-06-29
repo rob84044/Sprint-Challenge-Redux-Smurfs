@@ -104,15 +104,15 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   smurfs: state.smurfs,
-  requestingData: state.requestingData
+  fetchingSmurfs: state.fetchingSmurfs
 });
 
 export default connect(
   mapStateToProps,
   {
-    requestSmurfs,
-    addSmurf,
-    updateSmurf,
-    deleteSmurf
+    getSmurfs,
+    addSmurfs,
+    updateSmurfs,
+    deleteSmurfs
   }
 )(App);

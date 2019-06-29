@@ -31,7 +31,7 @@ const initialState = {
  }
 */
 
-function reducer(state = initialState, action) {
+export const reducer = (state = initialState, action) => {
   console.log('reducer', action);
   switch (action.type) {
     case LOAD_START:
@@ -77,9 +77,8 @@ function reducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};
 
-export default reducer;
 /*
   You'll only need one smurf reducer for this project.
   Feel free to export it as a default and import as rootReducer. 

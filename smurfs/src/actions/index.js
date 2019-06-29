@@ -14,7 +14,7 @@ export const SMURF_SUCCESS = 'SMURF_SUCCESS';
 export const getSmurfs = () => dispatch => {
   dispatch({ type: LOAD_START });
   axios
-    .get('http://localhost:5000/smurfs/')
+    .get('http://localhost:5000/smurfs')
     .then(response => {
       console.log('Response:', response);
       dispatch({ type: SMURF_SUCCESS, payload: response.data });
@@ -25,7 +25,7 @@ export const getSmurfs = () => dispatch => {
 export const addSmurfs = smurf => dispatch => {
   dispatch({ type: ADD_SMURF });
   axios
-    .post(`http://localhost:5000/smurfs/`, smurf)
+    .post(`http://localhost:5000/smurfs`, smurf)
     .then(response => {
       dispatch({ type: SMURF_SUCCESS, payload: response.data });
     })

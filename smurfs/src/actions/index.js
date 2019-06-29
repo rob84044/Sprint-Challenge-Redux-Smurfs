@@ -14,7 +14,7 @@ export const SMURF_SUCCESS = 'SMURF_SUCCESS';
 export const getSmurfs = () => dispatch => {
   dispatch({ type: LOAD_START });
   axios
-    .get('http://localhost:5000')
+    .get('http://localhost:5000/smurfs/')
     .then(response => {
       console.log('Response:', response);
       dispatch({ type: SMURF_SUCCESS, payload: response.data });
@@ -25,7 +25,7 @@ export const getSmurfs = () => dispatch => {
 export const addSmurfs = smurf => dispatch => {
   dispatch({ type: ADD_SMURF });
   axios
-    .post(`http://localhost:5000`, smurf)
+    .post(`http://localhost:5000/smurfs/`, smurf)
     .then(response => {
       dispatch({ type: SMURF_SUCCESS, payload: response.data });
     })
@@ -35,7 +35,7 @@ export const addSmurfs = smurf => dispatch => {
 export const updateSmurfs = (smurf, id) => dispatch => {
   dispatch({ type: UPDATE_SMURF });
   axios
-    .put(`http://localhost:5000/${id}`, smurf)
+    .put(`http://localhost:5000/smurfs/${id}`, smurf)
     .then(response => {
       dispatch({ type: SMURF_SUCCESS, payload: response.data });
     })
@@ -47,7 +47,7 @@ export const updateSmurfs = (smurf, id) => dispatch => {
 export const deleteSmurfs = id => dispatch => {
   dispatch({ type: DELETE_SMURF });
   axios
-    .delete(`http://localhost:5000/${id}`)
+    .delete(`http://localhost:5000/smurfs/${id}`)
     .then(response => {
       dispatch({ type: SMURF_SUCCESS, payload: response.data });
     })

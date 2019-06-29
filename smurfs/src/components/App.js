@@ -3,7 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { getSmurfs, addSmurfs, updateSmurfs, deleteSmurfs } from '../actions';
 import { GlobalStyle, AppContainer, H1 } from '../styles';
-import SmurfVillage from './SmurfVillage';
+import Village from './Village';
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -83,7 +83,7 @@ class App extends Component {
         <GlobalStyle />
         <AppContainer>
           <H1>Welcome to Smurf Village</H1>
-          <SmurfVillage
+          <Village
             mode={this.state.mode}
             toggleMode={this.toggleMode}
             handleChange={this.handleChange}

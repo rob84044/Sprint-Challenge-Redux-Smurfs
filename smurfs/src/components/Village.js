@@ -1,7 +1,7 @@
 import React from 'react';
 import { Main, Section } from '../styles';
-import Form from './SmurfForm';
-import Smurfs from './SmurfList';
+import Form from './Form';
+import Smurfs from './Smurfs';
 
 const Village = props => {
   return (

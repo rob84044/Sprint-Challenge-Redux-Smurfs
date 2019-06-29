@@ -47,7 +47,7 @@ export const updateSmurfs = (smurf, id) => dispatch => {
     });
 };
 
-export const deleteSmurf = id => dispatch => {
+export const deleteSmurfs = id => dispatch => {
   dispatch({ type: DELETE_SMURF });
   axios
     .delete(`http://localhost:5000/smurfs/${id}`)

@@ -43,36 +43,36 @@ function reducer(state = initialState, action) {
     case ADD_SMURF:
       return {
         ...state,
-        smurfs: [...state.smurfs, action.payload],
+        error: null,
         fetchingSmurfs: false,
-        error: '',
-        addSmurf: true
+        smurfs: [...state.smurfs]
       };
     case UPDATE_SMURF:
-      const index = state.findIndex(smurf => smurf.id === action.payload.id);
-      /* This was obtained from https://stackoverflow.com/questions/46790746/update-array-object-in-react-redux-reducer */
-      return [
-        ...state.slice(0, index),
-        {
-          ...state,
-          error: action.payload,
-          fetchingSmurfs: false,
-          updateSmurf: true
-        }
-      ];
-      console.log(state.smurfs);
+      return {
+        ...state,
+        error: null,
+        fetchingSmurfs: false,
+        smurfs: [...state.smurfs]
+      };
     case DELETE_SMURF:
       return {
         ...state,
-        smurfs: state.smurfs.filter(smurf => !action.payload),
+        error: null,
         fetchingSmurfs: false,
-        deleteSmurf: true
+        smurfs: [...state.smurfs]
       };
     case SMURF_FAILURE:
       return {
         ...state,
         error: action.payload,
         fetchingSmurfs: false
+      };
+    case SMURF_SUCCESS:
+      return {
+        ...state,
+        error: null,
+        fetchingSmurfs: false,
+        smurfs: action.payload
       };
     default:
       return state;

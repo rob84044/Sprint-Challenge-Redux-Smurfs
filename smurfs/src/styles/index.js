@@ -10,9 +10,19 @@ html{
 body {
 	box-sizing: border-box;
     margin: 0;
-	padding: 0;
-	background: #7BE6F7;
-	@import url('https://fonts.googleapis.com/css?family=Oswald:200,400|Pacifico');
+  padding: 0;
+  background: #7be6f7;
+  background-image: url('https://cdn.wallpapersafari.com/5/0/tDo9ea.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+  @import url('https://fonts.googleapis.com/css?family=Oswald:200,400|Pacifico');
+  @media (max-width: 375px) {
+    background-repeat: repeat;
+    background-size: 50%;
+    background-position: right;
+  }
 }
 `;
 export const AppContainer = styled.div`
@@ -24,10 +34,16 @@ export const AppContainer = styled.div`
 `;
 
 export const H1 = styled.h1`
-  font-size: 4rem;
-  color: #f9fbff;
+  font-size: 6rem;
+  color: black;
   font-family: 'Pacifico', cursive;
+  font-weight: bolder;
   margin-bottom: 1%;
+  text-align: center;
+  text-shadow: 1px 1px #f9fbff;
+  @media (max-width: 375px) {
+    font-size: 3rem;
+  }
 `;
 
 export const Main = styled.main`
@@ -40,6 +56,10 @@ export const Main = styled.main`
   padding: 2.5% 2.5% 9%;
   border: 5px solid #f9fbff;
   background: #f9fbff;
+  @media (max-width: 375px) {
+    width: 200px;
+    border-radius: 40%;
+  }
 `;
 
 export const Section = styled.section`
@@ -111,6 +131,12 @@ export const Div = styled.div`
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  @media (max-width: 375px) {
+    width: 65px;
+    border-radius: 40%;
+    padding: 10%;
+    margin: 5% 0;
+  }
 `;
 export const H2 = styled.h2`
   font-size: 1.8rem;
